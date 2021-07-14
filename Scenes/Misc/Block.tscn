@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/Blocks/Block.gd" type="Script" id=1]
+[ext_resource path="res://Images/sprites.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Misc/BlockParticles.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 7.42583, 7.8521 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 6.40411, 2.97761 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 373, 47, 16, 16 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+particles = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="DestoryArea" type="Area2D" parent="."]
+position = Vector2( 0, 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DestoryArea"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = SubResource( 3 )
+region_rect = Rect2( 373, 47, 16, 16 )
+
+[connection signal="body_entered" from="DestoryArea" to="." method="_on_DestoryArea_body_entered"]
