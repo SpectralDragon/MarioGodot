@@ -4,7 +4,7 @@ Uncompleted Mario version created in #100DaysOfGodot challange.
 
 ## Screenshots
 
-Soon
+![Screenshot 1](https://raw.githubusercontent.com/SpectralDragon/MarioGodot/main/Screenshots/screenshot_1.png)
 
 ### Known Issueses
 
